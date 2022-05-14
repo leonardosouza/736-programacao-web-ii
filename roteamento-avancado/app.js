@@ -2,7 +2,7 @@
 const app = require("express")();
 const bodyParser = require("body-parser");
 
-app.use(bodyParser());
+app.use(bodyParser.urlencoded());
 
 // Mapeando as Rotas
 // app.METHOD("route", callback);
@@ -103,6 +103,10 @@ app.get(/(server|client)-?side/, advancedHandler);
 
 // $ Fim da Linha
 app.get(/(front|back)end$/, advancedHandler);
+
+// /cep/{number}
+// /postalcode/{number}
+app.get(/^\/(cep|postalcode)\/\d{5}\-?\d{3}$/, advancedHandler);
 
 // Iniciando o Servidor de Aplicação
 app.listen(5000, () => console.log(`Server running on port 5000`));
