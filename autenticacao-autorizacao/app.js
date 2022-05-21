@@ -2,14 +2,16 @@ const app = require("express")();
 const env = require("dotenv").config().parsed;
 const bodyParser = require("body-parser");
 const cookieParser = require("cookie-parser");
-const authorization = require("./authorization-middleware"); // middleware
+const authorization = require("./authorization-middleware"); 
+const sanitizeCPF = require("./sanitize-middleware");
+const validateStrongPass = require("./validate-strong-pass-middleware");
 
 // activing middleware
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(cookieParser()); 
 
 // routes (authentication)
-app.post('/login', (req, res) => {
+app.post('/login', sanitizeCPF, validateStrongPass, (req, res) => {
   const { USER, PWD } = env; // system
   const { usr, pwd } = req.body; // user
   const auth = (USER === usr && PWD === pwd);
@@ -35,7 +37,7 @@ app.post('/protected', authorization, (req, res) => {
     res
       .status(200)
       .json({ route: req.path, authorized: true })
-  });
+});
 
 app.post('/private', authorization, (req, res) => {
   res
