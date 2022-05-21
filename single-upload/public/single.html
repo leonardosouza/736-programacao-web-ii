@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Upload Single File</title>
+  <link rel="stylesheet" href="https://unpkg.com/purecss@2.1.0/build/pure-min.css" integrity="sha384-yHIFVG6ClnONEA5yB5DJXfW2/KC173DIQrYoZMEtBvGzmf0PKiGyNEqe9N6BNDBH" crossorigin="anonymous">
+</head>
+<body>
+  <h1>Upload Single File</h1>
+
+  <form class="pure-form" action="/upload/single" method="post" enctype="multipart/form-data">
+    <fieldset>
+      <label for="single">Escolha um arquivo:</label>
+      <input class="pure-input-rounded" type="file" name="single" id="single">
+      <button class="pure-button pure-button-primary">Upload</button>
+    </fieldset>
+  </form>
+  
+</body>
+</html>
