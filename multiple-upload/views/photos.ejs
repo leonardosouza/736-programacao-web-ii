@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Fotos</title>
+  <link rel="stylesheet" href="../page.css">
+</head>
+<body>
+  
+  
+  <table border="1">
+    <colgroup>
+      <col width="80">
+    </colgroup>
+    <tr>
+      <td>FOTO</td>
+      <td>NOME DO ARQUIVO</td>
+      <td>TAMANHO</td>
+    </tr>
+
+    <% photos.forEach( (photo) => { %>
+    <tr>
+      <!-- <td><img src="../uploads/<%=photo.filename %>" width="20%" alt=""></td> -->
+      <td><img src="../icone.jpeg" width="80%" alt=""></td>
+      <td><%=photo.filename %></td>
+      <td><%=photo.size %></td>
+    </tr>
+    <% } ); %>
+
+  </table>
+</body>
+</html>

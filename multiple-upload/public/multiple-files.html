@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Formulário - Envio de Múltiplos Arquivos</title>
+</head>
+<body>
+  <form action="/upload/multiple" method="post" enctype="multipart/form-data">
+    <fieldset>
+      <label for="">Selecione os arquivos:</label>
+      <input type="file" name="files" multiple>
+      <button>Upload!</button>
+    </fieldset>
+  </form>
+  
+</body>
+</html>
