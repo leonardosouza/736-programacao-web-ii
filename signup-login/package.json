@@ -1,0 +1,20 @@
+{
+  "name": "signup-login",
+  "version": "1.0.0",
+  "description": "",
+  "main": "src/app.js",
+  "scripts": {
+    "dev": "nodemon src/app"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "body-parser": "^1.20.0",
+    "dotenv": "^16.0.1",
+    "express": "^4.18.1",
+    "nodemon": "^2.0.16",
+    "sqlite3": "^5.0.8",
+    "ulid": "^2.3.0"
+  }
+}
