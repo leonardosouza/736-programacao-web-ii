@@ -13,6 +13,23 @@ class User {
     const sql = `INSERT INTO users (id, name, email, hash, salt) VALUES ('${ULID.ulid()}', '${name}', '${email}', '${hash}', '${salt}');`;
     this.conn.run(sql, callback);
   }
+
+  findOne(data, callback) {
+    const { email, password } = data;
+    const sql = `SELECT id, name, email, hash, salt FROM users WHERE email = '${email}';`;
+
+    this.conn.all(sql, (err, rows) => {
+      if(rows.length) {
+        const { salt, hash } = rows[0];
+        const hashPwd = crypto.pbkdf2Sync(password, salt, 1000, 64, 'sha512').toString('hex');
+        const passwordIsValid = hash === hashPwd;
+        callback(err, rows, passwordIsValid);
+      } else {
+        callback(err, rows, null);
+      }
+    });
+  }
+
 }
 
 module.exports = (conn) => new User(conn);
